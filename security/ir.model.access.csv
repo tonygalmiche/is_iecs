@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_is_tresorerie,access_is_tresorerie,model_is_tresorerie,base.group_user,1,1,1,1
+access_is_tresorerie_line,access_is_tresorerie_line,model_is_tresorerie_line,base.group_user,1,1,1,1
+

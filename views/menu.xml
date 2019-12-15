@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem   
+            name="IECS"  
+            id="is_iecs_main_menu" 
+            sequence="0"
+        />
+        <menuitem
+            name="Trésorerie"
+            id="is_tresorerie_main_menu" 
+            parent="is_iecs_main_menu" 
+            sequence="10"
+        />
+        <menuitem
+            name="Trésorerie"
+            id="is_tresorerie_menu" 
+            action="is_tresorerie_action"  
+            parent="is_tresorerie_main_menu" 
+            sequence="10"
+        />
+    </data>
+</odoo>

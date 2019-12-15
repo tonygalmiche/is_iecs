@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- is.tresorerie -->
+    <record id="is_tresorerie_form" model="ir.ui.view">
+        <field name="name">is.tresorerie.form</field>
+        <field name="model">is.tresorerie</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button
+                        name="calculer_tresorerie"
+                        type="object"
+                        string="Calculer Trésorerie"
+                        class="oe_highlight"
+                    />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="date_creation"/>
+                        <field name="nb_jours"/>
+                    </group>
+                    <group>
+                        <field name="line_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="jour"/>
+                                <field name="solde_debit"/>
+                                <field name="solde_credit"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="is_tresorerie_tree" model="ir.ui.view">
+        <field name="name">is.tresorerie.tree</field>
+        <field name="model">is.tresorerie</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date_creation"/>
+                <field name="nb_jours"/>
+            </tree>
+        </field>
+    </record>
+    <record id="is_tresorerie_search" model="ir.ui.view">
+        <field name="name">is.tresorerie.search</field>
+        <field name="model">is.tresorerie</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="date_creation"/>
+           </search>
+        </field>
+    </record>
+    <record  id="is_tresorerie_action" model="ir.actions.act_window">
+        <field name="name">Trésorerie</field>
+        <field name="res_model">is.tresorerie</field>
+        <field name="view_type">form</field>
+        <field name="limit">200</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- is.tresorerie.line -->
+    <record id="is_tresorerie_line_form" model="ir.ui.view">
+        <field name="name">is.tresorerie.line.form</field>
+        <field name="model">is.tresorerie.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="jour"/>
+                        <field name="solde_debit"/>
+                        <field name="solde_credit"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="is_tresorerie_line_tree" model="ir.ui.view">
+        <field name="name">is.tresorerie.line.tree</field>
+        <field name="model">is.tresorerie.line</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="jour"/>
+                <field name="solde_debit"/>
+                <field name="solde_credit"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="is_tresorerie_line_pivot" model="ir.ui.view">
+        <field name="name">is_tresorerie_line_pivot</field>
+        <field name="model">is.tresorerie.line</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="jour"         type="row" interval="day"/>
+                <field name="solde_debit"  type="measure"/>
+                <field name="solde_credit" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+    <record id="is_tresorerie_line_graph" model="ir.ui.view">
+        <field name="name">is_tresorerie_line_graph</field>
+        <field name="model">is.tresorerie.line</field>
+        <field name="arch" type="xml">
+            <graph type="bar" orientation="vertical" stacked="True">
+                <field name="jour"   type="row" interval="day"/>
+                <field name="etat"   type="row"/>
+                <field name="solde"  type="measure"/>
+            </graph>
+        </field>
+    </record>
+    <record id="is_tresorerie_line_search" model="ir.ui.view">
+        <field name="name">is.tresorerie.line.search</field>
+        <field name="model">is.tresorerie.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="jour"/>
+           </search>
+        </field>
+    </record>
+    <record  id="is_tresorerie_line_action" model="ir.actions.act_window">
+        <field name="name">Trésorerie</field>
+        <field name="res_model">is.tresorerie.line</field>
+        <field name="view_type">form</field>
+        <field name="limit">200</field>
+        <field name="view_mode">graph,tree,form,pivot</field>
+    </record>
+</odoo>
+
+
