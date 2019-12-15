@@ -12,7 +12,7 @@ class IsTresorerie(models.Model):
     _rec_name = 'date_creation'
 
     date_creation = fields.Date("Date de création", readonly=True, index=True, default=lambda *a: fields.Date.today())
-    solde_depart  = fields.Float("Solde de départ", required=True)
+    solde_depart  = fields.Float("Solde de départ", required=False)
     nb_jours      = fields.Integer("Nombre de jours", required=True, default=28)
     line_ids      = fields.One2many('is.tresorerie.line', 'tresorerie_id', u'Dates')
 
