@@ -7,10 +7,17 @@
             sequence="0"
         />
         <menuitem
+            name="Articles"
+            id="is_product_template_menu" 
+            action="is_product_template_action"  
+            parent="is_iecs_main_menu" 
+            sequence="10"
+        />
+        <menuitem
             name="Trésorerie"
             id="is_tresorerie_main_menu" 
             parent="is_iecs_main_menu" 
-            sequence="10"
+            sequence="20"
         />
         <menuitem
             name="Trésorerie"

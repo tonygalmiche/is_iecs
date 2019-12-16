@@ -26,6 +26,7 @@ InfoSaône - Module Odoo pour IECS
     'data' : [
         'security/ir.model.access.csv',
         'views/res_partner_views.xml',
+        'views/product_views.xml',
         'views/sale_views.xml',
         'views/is_tresorerie_views.xml',
         'views/menu.xml',
