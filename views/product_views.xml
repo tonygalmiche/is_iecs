@@ -49,6 +49,7 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view"/>
         <field name="arch" type="xml">
+            <field name="weight" position="replace"/>
             <xpath expr="//field[@name='type']" position="before">
                 <field name="is_type_article"/>
                 <field name="is_num_serie"            attrs="{'invisible': [('is_type_article','!=', 'avec-numero-de-serie'),('is_type_article','!=', 'machine'),('is_type_article','!=', 'outillage')]}"/>
@@ -62,6 +63,9 @@
                 <field name="is_piece_rechange"       attrs="{'invisible': [('is_type_article','!=', 'machine')]}"/>
                 <field name="is_matiere_id"/>
                 <field name="is_emplacement_stock_id" attrs="{'invisible': [('is_type_article','!=', 'outillage')]}"/>
+                <field name="weight"/>
+                <field name="is_puissance"/>
+                <field name="is_largeur_tapis"/>
             </xpath>
         </field>
     </record>
@@ -80,6 +84,9 @@
                 <field name="is_piece_rechange"/>
                 <field name="is_matiere_id"/>
                 <field name="is_emplacement_stock_id"/>
+                <field name="weight"/>
+                <field name="is_puissance"/>
+                <field name="is_largeur_tapis"/>
                 <field name="list_price"/>
                 <field name="standard_price"/>
                 <field name="qty_available"/>
@@ -100,6 +107,7 @@
                 <field name="is_piece_rechange"/>
                 <field name="is_matiere_id"/>
                 <field name="is_emplacement_stock_id"/>
+                <field name="is_largeur_tapis"/>
             </field>
            <field name="categ_id" position="replace"/>
         </field>

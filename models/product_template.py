@@ -30,15 +30,18 @@ class ProductTemplate(models.Model):
             ('outillage'           , 'Outillage'),
         ], u"Famille d'article",default='standard',required=True,index=True)
     is_num_serie            = fields.Char("Numéro de série")
-    is_date_depart_garantie = fields.Date(u"Date de départ de la garantie")
-    is_duree_garantie       = fields.Integer(u"Durée de garantie (mois)")
-    is_date_fin_garantie    = fields.Date(u"Date de fin de garantie", compute='_compute_is_date_fin_garantie', readonly=True, store=True)
+    is_date_depart_garantie = fields.Date(u"Début garantie")
+    is_duree_garantie       = fields.Integer(u"Durée garantie")
+    is_date_fin_garantie    = fields.Date(u"Fin de garantie", compute='_compute_is_date_fin_garantie', readonly=True, store=True)
     is_certificat_ce_ids    = fields.Many2many('ir.attachment', 'product_template_certificat_ce_rel', 'product_id', 'file_id', 'Certificat CE')
     is_plan_ids             = fields.Many2many('ir.attachment', 'product_template_plan_rel'         , 'product_id', 'file_id', 'Plans')
     is_photo_ids            = fields.Many2many('ir.attachment', 'product_template_photo_rel'        , 'product_id', 'file_id', 'Photos')
     is_notice_ids           = fields.Many2many('ir.attachment', 'product_template_notice_rel'       , 'product_id', 'file_id', 'Notices')
     is_piece_rechange       = fields.Boolean("Pièces de rechange")
     is_matiere_id           = fields.Many2one('is.matiere', u"Matière")
-    is_emplacement_stock_id = fields.Many2one('stock.location', u"Emplacement de stock", domain=[('usage','=','internal')])
+    is_emplacement_stock_id = fields.Many2one('stock.location', u"Emplacement", domain=[('usage','=','internal')])
+    is_puissance            = fields.Float(u"Puissance (KW)")
+    is_largeur_tapis        = fields.Integer(u"Largeur tapis")
+
 
 
