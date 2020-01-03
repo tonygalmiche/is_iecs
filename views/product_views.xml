@@ -1,5 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
+    <!-- is.matiere -->
+    <record id="is_matiere_form" model="ir.ui.view">
+        <field name="name">is.matiere.form</field>
+        <field name="model">is.matiere</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="is_matiere_tree" model="ir.ui.view">
+        <field name="name">is.matiere.tree</field>
+        <field name="model">is.matiere</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <record id="is_matiere_search" model="ir.ui.view">
+        <field name="name">is.matiere.search</field>
+        <field name="model">is.matiere</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+           </search>
+        </field>
+    </record>
+    <record  id="is_matiere_action" model="ir.actions.act_window">
+        <field name="name">Matière</field>
+        <field name="res_model">is.matiere</field>
+        <field name="view_type">form</field>
+        <field name="limit">200</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
     <record id="is_product_template_form_view" model="ir.ui.view">
         <field name="name">is_product_template_form_view</field>
         <field name="model">product.template</field>
@@ -7,10 +51,17 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='type']" position="before">
                 <field name="is_type_article"/>
-                <field name="is_num_serie"      attrs="{'invisible': [('is_type_article','!=', 'avec-numero-de-serie'),('is_type_article','!=', 'machine')]}"/>
-                <field name="is_garantie"       attrs="{'invisible': [('is_type_article','!=', 'avec-numero-de-serie'),('is_type_article','!=', 'machine')]}"/>
-                <field name="is_certificat_ce"  attrs="{'invisible': [('is_type_article','!=', 'machine')]}"/>
-                <field name="is_piece_rechange" attrs="{'invisible': [('is_type_article','!=', 'machine')]}"/>
+                <field name="is_num_serie"            attrs="{'invisible': [('is_type_article','!=', 'avec-numero-de-serie'),('is_type_article','!=', 'machine'),('is_type_article','!=', 'outillage')]}"/>
+                <field name="is_date_depart_garantie" attrs="{'invisible': [('is_type_article','!=', 'avec-numero-de-serie'),('is_type_article','!=', 'machine'),('is_type_article','!=', 'outillage')]}"/>
+                <field name="is_duree_garantie"       attrs="{'invisible': [('is_type_article','!=', 'avec-numero-de-serie'),('is_type_article','!=', 'machine'),('is_type_article','!=', 'outillage')]}"/>
+                <field name="is_date_fin_garantie"    attrs="{'invisible': [('is_type_article','!=', 'avec-numero-de-serie'),('is_type_article','!=', 'machine'),('is_type_article','!=', 'outillage')]}"/>
+                <field name="is_certificat_ce_ids"    attrs="{'invisible': [('is_type_article','!=', 'machine')]}" widget="many2many_binary"/>
+                <field name="is_plan_ids"             attrs="{'invisible': [('is_type_article','!=', 'machine')]}" widget="many2many_binary"/>
+                <field name="is_photo_ids"            attrs="{'invisible': [('is_type_article','!=', 'machine')]}" widget="many2many_binary"/>
+                <field name="is_notice_ids"           attrs="{'invisible': [('is_type_article','!=', 'machine'),('is_type_article','!=', 'outillage')]}" widget="many2many_binary"/>
+                <field name="is_piece_rechange"       attrs="{'invisible': [('is_type_article','!=', 'machine')]}"/>
+                <field name="is_matiere_id"/>
+                <field name="is_emplacement_stock_id" attrs="{'invisible': [('is_type_article','!=', 'outillage')]}"/>
             </xpath>
         </field>
     </record>
@@ -23,9 +74,12 @@
                 <field name="name"/>
                 <field name="is_type_article"/>
                 <field name="is_num_serie"/>
-                <field name="is_garantie"/>
-                <field name="is_certificat_ce"/>
+                <field name="is_date_depart_garantie"/>
+                <field name="is_duree_garantie"/>
+                <field name="is_date_fin_garantie"/>
                 <field name="is_piece_rechange"/>
+                <field name="is_matiere_id"/>
+                <field name="is_emplacement_stock_id"/>
                 <field name="list_price"/>
                 <field name="standard_price"/>
                 <field name="qty_available"/>
@@ -43,9 +97,9 @@
             <field name="name" position="after">
                 <field name="is_type_article"/>
                 <field name="is_num_serie"/>
-                <field name="is_garantie"/>
-                <field name="is_certificat_ce"/>
                 <field name="is_piece_rechange"/>
+                <field name="is_matiere_id"/>
+                <field name="is_emplacement_stock_id"/>
             </field>
            <field name="categ_id" position="replace"/>
         </field>

@@ -26,5 +26,22 @@
             parent="is_tresorerie_main_menu" 
             sequence="10"
         />
+
+
+        <menuitem
+            name="Tables"
+            id="is_table_main_menu" 
+            parent="is_iecs_main_menu" 
+            sequence="90"
+        />
+        <menuitem
+            name="Matière"
+            id="is_matiere_menu" 
+            action="is_matiere_action"  
+            parent="is_table_main_menu" 
+            sequence="10"
+        />
+
+
     </data>
 </odoo>
