@@ -42,6 +42,5 @@ class ProductTemplate(models.Model):
     is_emplacement_stock_id = fields.Many2one('stock.location', u"Emplacement", domain=[('usage','=','internal')])
     is_puissance            = fields.Float(u"Puissance (KW)")
     is_largeur_tapis        = fields.Integer(u"Largeur tapis")
-
-
-
+    is_marque               = fields.Char("Marque")
+    is_modele               = fields.Char("Modèle")
