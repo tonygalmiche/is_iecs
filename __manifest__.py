@@ -29,6 +29,8 @@ InfoSaône - Module Odoo pour IECS
         'views/product_views.xml',
         'views/sale_views.xml',
         'views/is_tresorerie_views.xml',
+        'views/is_affaire_view.xml',
+        'views/purchase_view.xml',
         'views/menu.xml',
     ],
     'installable': True,

@@ -13,6 +13,36 @@
             parent="is_iecs_main_menu" 
             sequence="10"
         />
+
+        <menuitem
+            name="Affaires"
+            id="is_affaire_main_menu" 
+            parent="is_iecs_main_menu" 
+            sequence="15"
+        />
+        <menuitem
+            name="Affaires"
+            id="is_affaire_menu" 
+            action="is_affaire_action"  
+            parent="is_affaire_main_menu" 
+            sequence="10"
+        />
+        <menuitem
+            name="Sous-Ensembles"
+            id="is_sous_ensemble_menu" 
+            action="is_sous_ensemble_action"  
+            parent="is_affaire_main_menu" 
+            sequence="20"
+        />
+        <menuitem
+            name="Lignes des sous-ensembles"
+            id="is_sous_ensemble_line_menu" 
+            action="is_sous_ensemble_line_action"  
+            parent="is_affaire_main_menu" 
+            sequence="30"
+        />
+
+
         <menuitem
             name="Trésorerie"
             id="is_tresorerie_main_menu" 
