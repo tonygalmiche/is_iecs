@@ -6,3 +6,4 @@ class ResPartner(models.Model):
     _inherit = 'res.partner'
 
     is_distance = fields.Float(u"Distance (km)")
+    is_fax      = fields.Char(u"Fax")

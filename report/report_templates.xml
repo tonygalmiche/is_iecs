@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="is_external_layout_standard" name="is_external_layout_standard" inherit_id="web.external_layout_standard">
+        <xpath expr="//div[hasclass('header')]" position="replace">
+            <div class="header">
+                <table style="width:100%">
+                    <tr>
+                        <td class="text-left align-top font-weight-bold">
+                            <div t-if="company.name" t-field="company.name"/>
+                            <div t-if="company.name" t-field="company.is_presentation"/>
+                            <span t-field="company.street"/> - <span t-field="company.street2"/><br />
+                            <span t-field="company.zip"/> <span t-field="company.city"/><br />
+                        </td>
+                        <td class="text-right">
+                            <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 150px;" alt="Logo"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[hasclass('footer')]" position="replace">
+            <div class="footer o_standard_footer">
+                <div style="height:5mm"/>
+                <div class="text-center" style="border-top: 1px solid black;font-size:10pt">
+                    <t t-if="company.company_registry"><span t-field="company.company_registry"/> - </t>
+                    Siret : <span t-field="company.siret"/> - 
+                    Capital : <span t-field="company.is_capital"/> - 
+                    APE : <span t-field="company.ape"/> - 
+                    N° TVA : <span t-field="company.vat"/><br />
+                    Email : <span t-field="company.email"/> - 
+                    Web : <span t-field="company.website"/> - 
+                    <b>Tél. : <span t-field="company.phone"/></b> - 
+                    <b>Fax. : <span t-field="company.partner_id.is_fax"/></b> - 
+                    Page <span class="page"/> / <span class="topage"/>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

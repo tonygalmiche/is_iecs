@@ -7,8 +7,7 @@ from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
 class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
-    is_affaire_id = fields.Many2one('is.affaire', u'Affaire')
-
+    is_affaire_id      = fields.Many2one('is.affaire', u'Affaire')
 
     @api.multi
     def acceder_devis(self):
